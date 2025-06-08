@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎂🎂🎂Chúc Mừng Sinh Nhật Vợ Yêu🎂🎂🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(135deg, #ffd6e0, #ffe6cc);
+      color: #333;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5em;
+    }
+    .gift-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+    }
+    .gift-box {
+      width: 120px;
+      height: 120px;
+      background: url('https://i.imgur.com/sC7hZ1w.png') no-repeat center/cover;
+      border: 3px dashed #fff;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      position: relative;
+    }
+    .gift-box:hover {
+      transform: scale(1.1);
+    }
+    .gift-reveal {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2em;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: none;
+    }
+    .youtube {
+      margin: 20px auto;
+    }
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      top: -10px;
+      animation: fall 6s linear infinite;
+      z-index: 0;
+    }
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes fall {
+      0% {
+        top: -10px;
+        opacity: 1;
+      }
+      100% {
+        top: 100vh;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎂 Chúc Mừng Sinh Nhật Vợ Yêu 🎁</h1>
+  <div class="youtube">
+    <iframe width="300" height="169" src="https://www.youtube.com/embed/CZN8vCYChLA?autoplay=0" 
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+    </iframe>
+    <p>👉 Nhấn vào để bật nhạc nền yêu thích 💖</p>
+  </div>
+  <div class="gift-container">
+    <div class="gift-box" onclick="revealGift(this, 'Một buổi spa thư giãn trọn gói 🌺')"></div>
+    <div class="gift-box" onclick="revealGift(this, 'Một chuyến du lịch chill cho 2 đứa mình, a lo hết nè 🏖️')"></div>
+    <div class="gift-box" onclick="revealGift(this, '5 set đồ ngủ hoặc quần áo, váy, túi, son môi tùy vợ thích nè 👜💄👗👟')"></div>
+    <div class="gift-box" onclick="revealGift(this, 'Combo tuyệt vời nhất: mỗi đêm 2 hiệp nè hí hí👩‍❤️‍💋‍👨')"></div>
+    <div class="gift-box" onclick="revealGift(this, 'Một con gấu siêu to khổng lồ nữa thay khi ở xa nhau nè🧸')"></div>
+    <div class="gift-box" onclick="revealGift(this, 'Một buổi xem phim + ăn vặt a lo hết nha 🍿')"></div>
+  </div>
+  <script>
+    function revealGift(box, text) {
+      if (!box.querySelector('.gift-reveal')) {
+        const reveal = document.createElement('div');
+        reveal.className = 'gift-reveal';
+        reveal.innerText = text;
+        box.appendChild(reveal);
+        firework();
+      }
+      box.querySelector('.gift-reveal').style.display = 'flex';
+    }
+
+    // Firework effect
+    function firework() {
+      for (let i = 0; i < 10; i++) {
+        const fire = document.createElement('div');
+        fire.className = 'heart';
+        fire.style.left = Math.random() * window.innerWidth + 'px';
+        fire.style.animationDuration = 2 + Math.random() * 3 + 's';
+        document.body.appendChild(fire);
+        setTimeout(() => fire.remove(), 5000);
+      }
+    }
+
+    // Falling hearts loop
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 10000);
+    }, 500);
+  </script>
+</body>
+</html>
